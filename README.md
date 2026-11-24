@@ -71,7 +71,7 @@ pytest
 ## Roadmap
 
 - [x] Repo skeleton with CI
-- [ ] Synthetic data generator, projection code, radar ego-motion and yaw-offset fit
+- [x] Synthetic data generator, projection code, radar ego-motion and yaw-offset fit
 - [ ] View-of-Delft loader and radar-on-image visualiser
 - [ ] Baseline perception: YOLO, radar clustering, late fusion
 - [ ] Fault library and benchmark configs
@@ -81,10 +81,21 @@ pytest
 
 ## Results
 
-None yet.
+No results on real data yet.
+
+**Synthetic sanity check (not a real-radar result).** The radar ego-motion fit
+recovers a mounting yaw offset. With 10 m/s ego speed and 0.1 m/s Doppler noise,
+a median over 10 frames stays within 0.2° in every one of 100 trials
+(worst 0.13°). It does **not** meet 0.2° at 3 m/s ego speed, at 0.25 m/s
+Doppler noise, or when a velocity bias is present but not modelled.
+Full table: [`experiments/synthetic_yaw_fit.csv`](experiments/synthetic_yaw_fit.csv),
+made by `python scripts/yaw_fit_report.py --csv experiments/synthetic_yaw_fit.csv`.
 
 ## Limitations
 
+- The yaw fit assumes the radar does not move vertically, so it cannot see a pitch error.
+  Slow road users (for example pedestrians) can be mistaken for static points and
+  pull a single-frame estimate by about 0.1°.
 - All faults in the benchmark are **simulated**. Real snow on a radar or real mud on a lens can look different from the fault models used here. Every result will be labelled as coming from simulated faults.
 
 ## License

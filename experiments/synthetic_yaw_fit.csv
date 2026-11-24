@@ -1,0 +1,8 @@
+scenario,trials,single_frame_p95_deg,single_frame_max_deg,median10_p95_deg,median10_max_deg,within_0p2_deg
+"straight, 2 deg offset",100,0.229,0.368,0.082,0.12,True
+"straight, -3 deg offset",100,0.24,0.38,0.085,0.132,True
+"turning 0.3 rad/s, 2 deg",100,0.23,0.382,0.08,0.13,True
+"slow 3 m/s, 2 deg",100,0.797,1.17,0.278,0.451,False
+"bias 0.5 m/s, 2 deg (bias fitted)",100,0.232,0.551,0.083,0.131,True
+"bias 0.5 m/s, 2 deg (bias NOT fitted)",100,0.447,0.792,0.244,0.301,False
+"noise 0.25 m/s, 2 deg",100,0.617,0.831,0.257,0.456,False
