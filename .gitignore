@@ -1,0 +1,41 @@
+# ---- Datasets: NEVER commit (View-of-Delft license is non-commercial, no redistribution) ----
+datasets/
+data_raw/
+view_of_delft*/
+nuscenes*/
+*.bin
+*.pcd
+*.npz
+*.db3
+*.mcap
+
+# ---- Model weights and training runs ----
+*.pt
+*.pth
+*.onnx
+*.engine
+runs/
+wandb/
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ---- ROS 2 build output ----
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
+# ---- Editors / OS ----
+.vscode/
+.idea/
+.DS_Store

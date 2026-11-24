@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "senseguard"
+version = "0.0.1"
+description = "Open, explainable health monitor for camera + 4D radar perception."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Likhith Kumar Shivakumar" }]
+# Keep the core small so CI stays fast. Heavy libraries live in extras.
+dependencies = [
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+]
+# Camera side: image checks and YOLO (install on the laptop, not in CI).
+vision = [
+    "opencv-python-headless>=4.9",
+    "ultralytics>=8.3",
+]
+# Radar side: DBSCAN clustering.
+radar = [
+    "scikit-learn>=1.4",
+]
+
+[project.urls]
+Repository = "https://github.com/LikhithKumar555/senseguard"
+
+[tool.setuptools.packages.find]
+include = ["senseguard*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
